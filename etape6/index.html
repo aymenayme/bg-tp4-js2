@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CRUD-Persons</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="table_container">
+      <div id="form_container">
+        <div class="form_group">
+          <label class="form_label">Nom:</label>
+          <input type="text" id="form_nom" class="form_field" />
+        </div>
+        <div class="form_group">
+          <label class="form_label">Prénom:</label>
+          <input type="text" id="form_prenom" class="form_field" />
+        </div>
+        <div class="form_group">
+          <label class="form_label">Points:</label>
+          <input type="number" id="form_points" class="form_field" />
+        </div>
+        <button class="btn-add" onclick="doNewData()">Ajouter</button>
+      </div>
+
+      <table id="persons_table">
+        <thead>
+          <tr>
+            <th class="col_number">N°</th>
+            <th class="col_text">Nom</th>
+            <th class="col_text">Prénom</th>
+            <th class="col_number">Points</th>
+            <th class="col_chkbox">
+              Select
+              <input type="checkbox" id="chk_all" onchange="toggleAll(this)" />
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div id="container_summary">
+        <p id="p1">0 ligne(s)</p>
+        <p id="p2"></p>
+        <p id="p3">Total point(s)= 0</p>
+      </div>
+
+      <div id="container_btn">
+        <div class="tools">
+          <input
+            type="text"
+            id="search_field"
+            class="form_field"
+            placeholder="Rechercher..."
+            oninput="applyFilter()"
+          />
+          <button class="btn-sort" id="btn_sort" onclick="sortByPoints()">
+            Trier ▲
+          </button>
+        </div>
+        <button class="btn-consol" onclick="consoleTableau()">
+          Console Tableau
+        </button>
+        <button class="btn-del" onclick="deleteRow()">Supprimer</button>
+      </div>
+    </div>
+  </body>
+</html>
